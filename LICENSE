@@ -22,6 +22,6 @@ SOFTWARE.
 
 ---
 This license covers only the files written by the author in this repository.
-Parts of Scripts/PlayerController.cs and Scripts/PlayerController2.cs are based
+Parts of Scripts/PlayerController2.cs are based
 on the KinectView sample (BodySourceView.cs) from Microsoft's Kinect for Windows
 SDK 2.0 Unity package and remain subject to Microsoft's license terms.
