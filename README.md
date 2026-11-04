@@ -1,8 +1,8 @@
-# ITfare2019（フルーツキャッチゲーム）
+# フルーツフィーバー
 
 Kinect v2 で体の動きを読み取ってプレイヤーを操作し、落ちてくるフルーツをかごに入れて点数を競うゲームです。Unity 2019.4 と C# で個人制作しました。2022年7月に、キーボード操作の追加やゲームバランスの調整などの改良を加えています。
 
-このリポジトリは自分で書いたスクリプトだけを公開しています。効果音・BGM・画像・Kinect SDK などの素材は含めていないので、このままでは Unity で開いて遊べません。
+このリポジトリは、自分で書いたスクリプトのうち本番のシーンで使っているものだけを公開しています。効果音・BGM・画像・Kinect SDK などの素材は含めていないので、このままでは Unity で開いて遊べません。
 
 ## 遊び方
 
@@ -15,15 +15,15 @@ Kinect v2 で体の動きを読み取ってプレイヤーを操作し、落ち�
 
 | ファイル | 役割 |
 |---|---|
-| `PlayerController.cs` / `PlayerController2.cs` | Kinect の骨格データから肩・ひじの位置を取り、プレイヤーの位置と角度に変換する（2人プレイ対応は 2） |
+| `PlayerController2.cs` | Kinect の骨格データから肩・ひじの位置を取り、2人分のプレイヤーの位置と角度に変換する |
 | `KeyPlayerController.cs` | キーボード・ゲームパッドでの操作（2022年に追加） |
 | `KeyManager.cs` | 開始・説明表示・リトライ・終了のキー入力 |
 | `FallManager.cs` | 出現率で重み付けしてフルーツを選び、ランダムな位置に落とす |
 | `Timer.cs` | 制限時間のカウントダウンと、時間に応じた落下レートの上昇 |
 | `catcher.cs` | かごに入ったフルーツの点数加算と演出 |
-| `ScoreManager.cs` / `SaveDataManager.cs` | スコアとランキングの保存（PlayerPrefs / JSON） |
+| `ScoreManager.cs` / `SaveDataManager.cs` | スコアの集計と保存（PlayerPrefs / JSON）。ランキング表示の部分は未完成で、本番では使っていません |
 | `GameState.cs` | 開始前・プレイ中・終了の状態管理 |
-| `SoundManager.cs` / `SpectrumManager.cs` | 効果音の再生と音声スペクトルの取得 |
+| `SoundManager.cs` | 開始・終了などの効果音の再生 |
 | `kago.cs` / `sinMove.cs` / `spin.cs` | かごや丸太の往復運動・回転 |
 
 ## 公開していないもの
@@ -32,7 +32,8 @@ Kinect v2 で体の動きを読み取ってプレイヤーを操作し、落ち�
 - 効果音・BGM: フリー素材サイトの素材
 - 画像: 自作ですが、ネット上の画像をトレースして作ったため外しています
 - Unity の UI Builder サンプル
+- 本番で使っていない試作・未完成のスクリプト（ランキング、1人用の旧プレイヤー操作、音のテスト用シーンのスクリプトなど）
 
 ## ライセンス
 
-自分で書いたコードは MIT ライセンスです（`LICENSE`）。`PlayerController.cs` と `PlayerController2.cs` の一部は Kinect SDK の KinectView サンプル（`BodySourceView.cs`）を元にしているので、その部分は Microsoft のライセンスに従います。
+自分で書いたコードは MIT ライセンスです（`LICENSE`）。`PlayerController2.cs` の一部は Kinect SDK の KinectView サンプル（`BodySourceView.cs`）を元にしているので、その部分は Microsoft のライセンスに従います。
